@@ -70,6 +70,8 @@ public class Bank {
         System.out.println("===========================");
         System.out.println();
     }
+
+    //prints out current balance
     public void balance(){
         System.out.println("======Current Balance======");
         System.out.println(">Account Number: " + accNum);
