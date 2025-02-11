@@ -1,0 +1,28 @@
+/*
+question #2: Arrays allow you to store a collection of data in one variable/ reference point which eliminates the need
+to use multiple individual variables to store each data piece. this is especially important when you have a large number
+of data for a specific purpose.
+
+question #3: objects and classes are important because it helps break up your program into simpler pieces and creates
+modularity. it allows you to do things in chunks and reduces the need to rewrite certain arithmetic and processes.
+it also gives the benefit of only needing to change one piece of code instead of multiple which can lead to errors.
+ */
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Bank account1 = new Bank(1001, 1000.0);
+        Bank account2 = new Bank(1002, 5500.0);
+        account1.deposit(460.0);
+        account2.withdraw(-345.0);
+        account1.withdraw(-600.0);
+        account2.deposit(58);
+        account1.deposit(2000);
+        account2.withdraw(-450);
+        account1.listHistory();
+        account1.balance();
+        account2.listHistory();
+        account2.balance();
+    }
+}
