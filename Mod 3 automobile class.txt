@@ -1,0 +1,71 @@
+public class Automobile {
+    //basic attributes
+    private String model;
+    private int year;
+    private String brand;
+
+    //default constructor
+    Automobile(){
+        this.model = "Unknown";
+        this.brand = "Unknown";
+        this.year = 0;
+    }
+
+    //constructor with inputs
+    Automobile(String mod, String bran, int y){
+        this.model = mod;
+        this.brand = bran;
+        this.year = y;
+    }
+
+    //method
+    public void honk(){
+        System.out.println("*beep*");
+    }
+
+    //getters
+    public String getModel() {
+        return model;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+
+    //setters
+    public void setModel(String mod) {
+        this.model = mod;
+    }
+
+    public void setBrand(String bran) {
+        this.brand = bran;
+    }
+
+    public void setYear(int y) {
+        this.year = y;
+    }
+
+
+    //to string override
+    @Override
+    public String toString(){
+        return "The vehicle's model: " + model + ", brand: " + brand + ", year: " + year;
+    }
+
+    //equals override
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof Automobile){
+            Automobile tempA = (Automobile) o;
+            if (this.model.equalsIgnoreCase(tempA.model) && this.brand.equalsIgnoreCase(tempA.brand) && this.year == tempA.year){
+                return true;
+            }
+        }
+        return false;
+    }
+}

@@ -1,0 +1,57 @@
+public class JunkCar extends Automobile{
+    private String status;
+
+    //default
+    public JunkCar(){
+        super();
+        this.status = "Absolute junk";
+    }
+
+    //constructor with input
+    public  JunkCar(String mod, String bran, int y){
+        super(mod, bran, y);
+        this.status = "Absolute junk";
+    }
+
+    public  JunkCar(String mod, String bran, int y, String stat){
+        super(mod, bran, y);
+        this.status = stat;
+    }
+
+    //setter
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    //getter
+    public String getStatus() {
+        return status;
+    }
+
+    //method
+    @Override
+    public void honk(){
+        System.out.println("*no sound emanates from the hunk of metal*");
+    }
+
+    //to string override
+    @Override
+    public String toString(){
+        String s = super.toString();
+        return s + ", it's currently: " + status;
+    }
+
+    //equals override
+
+    @Override
+    public boolean equals(Object o) {
+        boolean x = super.equals(o);
+        if (x && o instanceof JunkCar){
+            JunkCar tempJ = (JunkCar) o;
+            if (this.status.equalsIgnoreCase(tempJ.status)){
+                return true;
+            }
+        }
+        return false;
+    }
+}

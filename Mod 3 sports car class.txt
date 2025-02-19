@@ -1,0 +1,77 @@
+public class SportsCar extends Car{
+    private int superchargeIncrease;
+    private int uses = 1;
+
+
+    //default constructor
+    public SportsCar(){
+        super();
+        this.superchargeIncrease = 10;
+    }
+
+    //constructor with inputs
+    public SportsCar(String mod, String bran, int y){
+        super(mod, bran, y);
+        this.superchargeIncrease = 10;
+    }
+
+    public SportsCar(String mod, String bran, int y, int top, int acc){
+        super(mod, bran, y, top, acc);
+        this.superchargeIncrease = 10;
+    }
+
+    public SportsCar(String mod, String bran, int y, int top, int acc, int sup){
+        super(mod, bran, y, top, acc);
+        this.superchargeIncrease = sup;
+    }
+
+    //setter
+    public void setSuperchargeIncrease(int sup) {
+        this.superchargeIncrease = sup;
+    }
+
+    //getter
+    public int getSuperchargeIncrease() {
+        return superchargeIncrease;
+    }
+
+    //methods
+    public void supercharge(){
+        if (uses == 1){
+            this.setTopSpeed(getTopSpeed() + superchargeIncrease);
+            this.setAcceleration(this.getAcceleration() + 10);
+            System.out.println("activating supercharge!");
+            uses--;
+            System.out.println("top speed is now: " + this.getTopSpeed() + ", acceleration rate is: " + this.getAcceleration() +  " and you have " + uses + " supercharge uses left");
+        }else{
+            System.out.println("I have no more supercharge uses!");
+        }
+    }
+
+    @Override
+    public void honk() {
+        super.honk();
+        System.out.println("*BEEP*");
+    }
+
+    //to string override
+    @Override
+    public String toString(){
+        String s = super.toString();
+        return s + ", can supercharge for: " + superchargeIncrease + " and has " + uses + " uses left";
+    }
+
+    //equals override
+    @Override
+    public boolean equals(Object o){
+        boolean x = super.equals(o);
+        if(x && o instanceof SportsCar){
+            SportsCar tempS = (SportsCar) o;
+            if (this.superchargeIncrease == tempS.superchargeIncrease && this.uses == tempS.uses){
+                return true;
+            }
+        }
+        return false;
+    }
+
+}

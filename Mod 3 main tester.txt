@@ -1,0 +1,46 @@
+/*
+question 2: essentially it is what classes do, they hold
+the template for objects and how they function within the program. it is
+a fundamental part of what makes up OOP.
+
+question 3: it essentially stands for nothing which can lead to errors and code
+not working properly due to the lack of any value for a variable or what have you.
+
+question 4: essentially the subclass INHERITS the super class methods and variables
+while a car class may have an engine object that is part of the make-up/ composition
+of the class.
+ */
+
+public class Main {
+    public static void main(String[] args) {
+        Automobile[] vehicles = new Automobile[4];
+        Automobile a1 = new Automobile("Explorer", "Ford", 2007);
+        Car c1 = new Car();
+        SportsCar s1 = new SportsCar("X-1","Porche",2020,250,15,20);
+        JunkCar j1 = new JunkCar("Charger","Dodge", 1987,"lightly damaged");
+        vehicles[0] = a1;
+        vehicles[1] = c1;
+        vehicles[2] = s1;
+        vehicles[3] = j1;
+
+        for (Automobile i : vehicles) {
+            System.out.println(i.toString());
+        }
+
+        for (Automobile i : vehicles) {
+            i.honk();
+        }
+
+        c1.accelerate();
+        c1.stop();
+        s1.accelerate();
+        s1.accelerate();
+        s1.supercharge();
+        s1.accelerate();
+        s1.reverse();
+
+        System.out.println(c1.toString());
+        System.out.println(s1.toString());
+
+    }
+}

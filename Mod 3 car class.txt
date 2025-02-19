@@ -1,0 +1,104 @@
+public class Car extends Automobile{
+    private int speed;
+    private int topSpeed;
+    private int acceleration;
+
+    //default constructor
+    public Car(){
+        super();
+        this.topSpeed = 100;
+        this.acceleration = 10;
+    }
+
+    //constructor with inputs
+    public Car(String mod, String bran, int y){
+        super(mod, bran, y);
+        this.topSpeed = 100;
+        this.acceleration = 10;
+    }
+
+    public Car(int top, int acc){
+        super();
+        this.topSpeed = top;
+        this.acceleration = acc;
+    }
+
+    public Car(String mod, String bran, int y, int top, int acc){
+        super(mod, bran, y);
+        this.topSpeed = top;
+        this.acceleration = acc;
+    }
+
+    //setters
+    public void setTopSpeed(int top) {
+        this.topSpeed = top;
+    }
+
+    public void setAcceleration(int acc) {
+        this.acceleration = acc;
+    }
+
+    //getters
+    public int getTopSpeed() {
+        return topSpeed;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getAcceleration() {
+        return acceleration;
+    }
+
+    //car methods
+    public void accelerate(){
+        if (speed + acceleration <= topSpeed){
+            speed += acceleration;
+            System.out.println("*vroom*");
+        }else{
+            System.out.println("I'm at max speed!");
+        }
+    }
+
+    public void stop(){
+        speed = 0;
+        System.out.println("*skrrt* now stopped");
+    }
+
+    public void reverse(){
+        if (speed - acceleration >= topSpeed * -1){
+            speed -= acceleration;
+            System.out.println("backing it up");
+        }else{
+            System.out.println("I'm backing up as fast as i can!");
+        }
+
+    }
+
+    @Override
+    public void honk(){
+        super.honk();
+        System.out.println("*Beep*");
+    }
+
+    //to string override
+    @Override
+    public String toString(){
+        String s = super.toString();
+        return s + ", top speed: " + topSpeed + ", an acceleration limit of: " + acceleration + ", and a current speed of: " + speed;
+    }
+
+    //equal override
+    @Override
+    public boolean equals(Object o) {
+        boolean x = super.equals(o);
+        if (x && o instanceof Car){
+            Car tempC = (Car) o;
+            if (this.acceleration == tempC.acceleration && this.topSpeed == tempC.topSpeed){
+                return true;
+            }
+        }
+        return false;
+    }
+}
