@@ -1,0 +1,65 @@
+public class Rectangle extends Shape{
+    private double perimeter;
+    private double length;
+    private double width;
+
+    Rectangle(){
+        super(4,"Square");
+        this.length = 1.0;
+        this.width = 1.0;
+        this.setPerimeter();
+    }
+
+    Rectangle(double length, double width){
+        super(4, "Rectangle");
+        this.length = length;
+        this.width = width;
+        this.setPerimeter();
+        this.isSquare();
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+        this.isSquare();
+        this.setPerimeter();
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+        this.isSquare();
+        this.setPerimeter();
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    public void isSquare(){
+        if (this.length == this.width){
+            this.setShapeName("Square");
+        }
+        this.setShapeName("Rectangle");
+    }
+
+    private void setPerimeter(){
+        this.perimeter = (this.length * 2) + (this.width * 2);
+    }
+
+    @Override
+    public void setSides(int sides){
+        System.out.println("A " + this.getShapeName() + " can only have 4 sides!");
+    }
+
+    @Override
+    public String toString(){
+        return super.toString() + " with a length and width of " + this.length + " and " + this.width + " for a total perimeter of " + this.perimeter;
+    }
+}

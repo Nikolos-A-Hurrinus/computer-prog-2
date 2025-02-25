@@ -1,0 +1,33 @@
+/*
+question 2:
+private: when trying to hide a variable/array or etc. from other classes to prevent them from overriding the value it
+    references. very important for classes that use objects/ instances
+protected: used mostly when dealing with subclasses and supers where variables and methods need to be passed around in
+    between them.
+
+question 3: the benefit gained from making the analyst a subclass of the superclass employee is that it inherits
+    everything from the employee class for its own use without having to rewrite the code again. you also get whatever
+    class variables and methods employee might have from even higher superclasses. overall the main benefit is being
+    able to reuse code whilst still keeping distinct classes for different use-cases/ objects
+ */
+
+
+public class Main {
+    public static void main(String[] args) {
+        Circle c1 = new Circle();
+        System.out.println(c1.getSides());
+        c1.setSides(1);
+        System.out.println(c1.getSides());
+        System.out.println(c1.toString());
+        c1.setRadius(5.0);
+        System.out.println(c1.toString());
+
+        Rectangle r1 = new Rectangle();
+        System.out.println(r1.getSides());
+        r1.setSides(5);
+        System.out.println(r1.getSides());
+        System.out.println(r1.toString());
+        r1.setLength(15.0);
+        System.out.println(r1.toString());
+    }
+}

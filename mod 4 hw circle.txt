@@ -1,0 +1,43 @@
+public class Circle extends Shape{
+    private double radius;
+    private double diameter;
+
+    Circle(){
+        super(0,"Circle");
+        this.radius = 1.0;
+        this.findDiameter();
+    }
+
+    Circle(double radius){
+        super(0,"Circle");
+        this.radius = radius;
+        this.findDiameter();
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+        this.findDiameter();
+    }
+
+    public double getDiameter() {
+        return diameter;
+    }
+
+    private void findDiameter(){
+        this.diameter = radius * 2;
+    }
+
+    @Override
+    public void setSides(int sides){
+        System.out.println("A circle can't have anything other than 0 sides!");
+    }
+
+    @Override
+    public String toString(){
+        return super.toString() + " and a radius of " + radius + " for a diameter of " + this.diameter;
+    }
+}

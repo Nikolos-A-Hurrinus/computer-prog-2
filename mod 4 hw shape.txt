@@ -1,0 +1,43 @@
+public class Shape {
+    private int sides;
+    private String shapeName;
+
+    Shape(){
+        this.sides = 3;
+        this.shapeName = "A shape";
+    }
+
+    Shape(int sides){
+        this.sides = sides;
+    }
+
+    Shape(String shapeName){
+        this.shapeName = shapeName;
+    }
+
+    Shape(int sides, String shapeName){
+        this.sides = sides;
+        this.shapeName = shapeName;
+    }
+
+    public int getSides() {
+        return sides;
+    }
+
+    public void setSides(int sides) {
+        this.sides = sides;
+    }
+
+    public String getShapeName(){
+        return shapeName;
+    }
+
+    public void setShapeName(String shapeName) {
+        this.shapeName = shapeName;
+    }
+
+    @Override
+    public String toString(){
+        return "The " + this.shapeName + " has " + this.sides + " sides.";
+    }
+}
