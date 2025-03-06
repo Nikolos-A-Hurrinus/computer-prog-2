@@ -1,0 +1,100 @@
+/*
+this test class is used to test all the methods from the calculator class
+it uses assertEquals to check if the output is what is expected from the method being called for any number returns
+    includes methods:
+        -add
+        -subtract
+        -multiply
+        -divide
+
+it uses assertTrue for the boolean returns
+    includes methods:
+        -isEven
+        -isOdd
+
+it uses a display name to describe what method is being done, what formula or number is being checked and the expected
+answer
+
+ */
+
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+public class testCalculator {
+
+    //tests adds
+    @Test
+    @DisplayName("add 2 and 2 for 4")
+    public void testAdd1(){
+        Calculator calculator = new Calculator();
+        assertEquals(4,calculator.add(2,2));
+    }
+
+    @Test
+    @DisplayName("add 2.5 and 2.5 for 5")
+    public void testAdd2(){
+        Calculator calculator = new Calculator();
+        assertEquals(5,calculator.add(2.5,2.5));
+    }
+
+    //tests subtract
+    @Test
+    @DisplayName("subtract 2 by 2 for 0")
+    public void testSub1(){
+        Calculator calculator = new Calculator();
+        assertEquals(0,calculator.subtract(2,2));
+    }
+
+    @Test
+    @DisplayName("subtract 5.0 by 2.5 for 2.5")
+    public void testSub2(){
+        Calculator calculator = new Calculator();
+        assertEquals(2.5,calculator.subtract(5.0,2.5));
+    }
+
+    //tests multiply
+    @Test
+    @DisplayName("multiply 2 and 2 for 4")
+    public void testMult1(){
+        Calculator calculator = new Calculator();
+        assertEquals(4,calculator.multiply(2,2));
+    }
+
+    @Test
+    @DisplayName("multiply .5 and 2 for 1")
+    public void testMult2(){
+        Calculator calculator = new Calculator();
+        assertEquals(1,calculator.multiply(0.5,2));
+    }
+
+    //tests divide
+    @Test
+    @DisplayName("divide 8 by 2 for 4")
+    public void testDiv1(){
+        Calculator calculator = new Calculator();
+        assertEquals(4,calculator.divide(8,2));
+    }
+
+    @Test
+    @DisplayName("divide 5.0 by 2.5 for 2")
+    public void testDiv2(){
+        Calculator calculator = new Calculator();
+        assertEquals(2,calculator.divide(5.0,2.5));
+    }
+
+    //tests isEven and isOdd
+    @Test
+    @DisplayName("check if 8 is even")
+    public void testIsEven(){
+        Calculator calculator = new Calculator();
+        assertTrue(calculator.isEven(8));
+    }
+
+    @Test
+    @DisplayName("check if 7 is odd")
+    public void testIsOdd(){
+        Calculator calculator = new Calculator();
+        assertTrue(calculator.isOdd(7));
+    }
+}

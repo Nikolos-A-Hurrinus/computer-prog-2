@@ -1,0 +1,64 @@
+/*
+this is the calculator class which holds all the calculation methods that are to be checked by the testCalculator class
+the methods included in this class are:
+    -add:
+        a method that can either add 2 ints or 2 doubles
+    -subtract
+        a method that can subtract 2 ints or doubles
+    -multiply
+        a method that can multiply 2 ints or doubles
+    -divide
+        a method that can divide 2 ints or doubles
+    -isEven
+        takes 1 number and uses: "x % 2 == 0" to check if it is even
+    -isOdd
+        takes 1 number and uses: "x % 2 == 1" to check if it is odd
+ */
+
+public class Calculator {
+
+    //add methods
+    public static int add(int x, int y){
+        return x + y;
+    }
+
+    public static double add(double x, double y){
+        return x + y;
+    }
+
+    //subtract methods
+    public static int subtract(int x, int y){
+        return x - y;
+    }
+
+    public static double subtract(double x, double y){
+        return x - y;
+    }
+
+    //multiply methods
+    public static int multiply(int x, int y){
+        return x * y;
+    }
+
+    public static double multiply(double x, double y){
+        return x * y;
+    }
+
+    //divide methods
+    public static int divide(int x, int y){
+        return x / y;
+    }
+
+    public static double divide(double x, double y){
+        return x / y;
+    }
+
+    //mod check for even or odd
+    public static boolean isEven(int x){
+        return x % 2 == 0;
+    }
+
+    public static boolean isOdd(int x){
+        return x % 2 == 1;
+    }
+}
