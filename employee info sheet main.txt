@@ -1,0 +1,100 @@
+/*
+1. AWT is platform dependent because it calls upon elements (windows, buttons, etc.) that are specific to the current OS
+being used by the computer running the program. this is beneficial because it gives an integrated look that also is
+able to be used on any OS as it doesn't have to worry about graphics and functionality as much since it uses the OS's
+own elements.
+
+2. what it means is that your code doesn't compile and execute directly withing the computers hardware but instead in a
+virtual version of a machine that acts like a separator between the code and the computer itself. it is beneficial due
+to the fact it is a separate machine that can run java code interdependently from any OS that may be unable to run it.
+this allows code from one place to be able to run on another without any issues.
+
+3. object is always on the top because within the object class it defines all the criteria needed from making new
+classes and objects in your program. without it, you would be completely unable to do almost anything in java.
+
+4. it works almost like a folder to organize a bunch of classes which then could be imported into other programs, and
+it can help prevent naming conflicts if the same name for a class needs to be used in different contexts.
+
+5. an event is when some sort of action occurs such as when a button is clicked or the mouse is clicked which can then
+be used to perform a specific action.
+*/
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class Main {
+    public static void main(String[] args) {
+
+        //makes frame
+        Frame frame = new Frame("Employee Information Form");
+        frame.setLayout(null);
+
+        //label and text field for name
+        Label l1 = new Label("Name:");
+        l1.setBounds(20,50,80,30);
+        TextField t1 = new TextField();
+        t1.setBounds(120, 50, 200, 30);
+
+        //label and text field for employee ID
+        Label l2 = new Label("ID:");
+        l2.setBounds(20,100,80,30);
+        TextField t2 = new TextField();
+        t2.setBounds(120, 100, 200, 30);
+
+        //label and text field for Department
+        Label l3 = new Label("Department:");
+        l3.setBounds(20,150,80,30);
+        TextField t3 = new TextField();
+        t3.setBounds(120, 150, 200, 30);
+
+        //submit button
+        Button b1 = new Button("Submit");
+        b1.setBounds(120, 200, 80, 30);
+
+        //redisplay labels
+        Label rl1 = new Label();
+        rl1.setBounds(20,250,80,30);
+        Label rl2 = new Label();
+        rl2.setBounds(20,300,80,30);
+        Label rl3 = new Label();
+        rl3.setBounds(20,350,80,30);
+
+        //submit action
+        b1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                rl1.setText("name: " + t1.getText());
+                rl2.setText("ID: " + t2.getText());
+                rl3.setText("Department: " + t3.getText());
+            }
+        });
+
+        //adding to frame
+        frame.add(l1);
+        frame.add(t1);
+        frame.add(l2);
+        frame.add(t2);
+        frame.add(l3);
+        frame.add(t3);
+        frame.add(b1);
+        frame.add(rl1);
+        frame.add(rl2);
+        frame.add(rl3);
+
+        //frame sizing and visibility (make it show up)
+        frame.setSize(400, 400);
+        frame.setVisible(true);
+
+
+
+        //lets you exit out the window
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+    }
+}
