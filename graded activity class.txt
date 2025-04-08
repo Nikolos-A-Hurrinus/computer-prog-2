@@ -1,0 +1,53 @@
+public class GradedAct {
+
+    private int q;
+    private int mq;
+    private int ms;
+    private double grade;
+    private char score;
+
+
+    //constructor
+    public GradedAct(int questions, int missedQuestions, int minimumScore){
+        this.q = questions;
+        this.mq = missedQuestions;
+        this.ms = minimumScore;
+        this.grade = getGrade();
+        this.score = getScore();
+    }
+
+    public void setQ(int q) {
+        this.q = q;
+    }
+
+    public void setMq(int mq) {
+        this.mq = mq;
+    }
+
+    public void setMs(int ms) {
+        this.ms = ms;
+    }
+
+    //determines the users grade
+    public double getGrade() {
+        double points = 100.0 / this.q;
+        this.grade = 100.0 - (this.mq * points);
+        return grade;
+    }
+
+    //determines if they passed based off the grade and minimum set
+    public char getScore() {
+        if (getGrade() >= this.ms){
+            this.score = 'P';
+        }else{
+            this.score = 'F';
+        }
+        return score;
+    }
+
+    //used for displaying the results
+    @Override
+    public String toString() {
+        return "Grade for assignment: " + getGrade() + "\nPass or fail: " + getScore();
+    }
+}

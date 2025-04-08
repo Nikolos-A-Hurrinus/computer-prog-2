@@ -1,0 +1,27 @@
+import javax.swing.*;
+
+public class Main {
+    public static void main(String[] args) {
+        int q;
+        int mq;
+        int ms;
+        String input;
+
+        //receive input for the assignment
+        input = JOptionPane.showInputDialog("Enter the total questions for the assignment:");
+        q = Integer.parseInt(input);
+
+        input = JOptionPane.showInputDialog("Enter the total questions missed on the assignment:");
+        mq = Integer.parseInt(input);
+
+        input = JOptionPane.showInputDialog("Enter the minimum passing score for the assignment:");
+        ms = Integer.parseInt(input);
+
+        //creates object using users input
+        GradedAct a = new GradedAct(q, mq, ms);
+
+        //shows results
+        JOptionPane.showMessageDialog(null, a.toString());
+        System.exit(0);
+    }
+}
