@@ -1,0 +1,46 @@
+public class Doctor extends MedAssistant{
+    String specialty;
+    Patient[] patients;
+    //doctors will be assigned patients and the above array holds each of those patients
+    //this also requires for such patients to actually exist for the doctor to be assigned it
+
+    //basic constructor
+    public Doctor(String fir, String last, char mid, int age, String DOB, String mainLocation) {
+        super(fir, last, mid, age, DOB, mainLocation);
+        this.specialty = "Primary Care Physician";
+        this.position = "Doctor";
+    }
+
+    //full constructor
+    public Doctor(String fir, String last, char mid, int age, String DOB, String mainLocation, String specialty) {
+        super(fir, last, mid, age, DOB, mainLocation);
+        this.specialty = specialty;
+        this.position = "Doctor";
+    }
+
+    //getter
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    //this method is important for assigning the doctor each of their patients
+    public void setPatients(Patient[] patients) {
+        this.patients = patients;
+    }
+
+    //overridden print info method which includes the doctor specific information
+    //ass can be seen there is an if statement in case the doctor has no patients assigned to them and it prints accordingly
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Dr." + getLast() + " is a " + specialty);
+        if (patients == null){
+            System.out.println("Currently has no patients");
+        }else{
+            System.out.println("Current patients:");
+            for (Patient patient : patients){
+                System.out.println("   " + patient.getFullName() + " last appointment: " + patient.getLastApp() + " next appointment: " + patient.getNextApp());
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+//base class all others are extended from
+
+public class Person {
+    private String fir, last, DOB, fullName;
+    private char mid;
+    private int age;
+
+    //constructor
+    public Person(String fir, String last, char mid, int age, String DOB){
+        this.fir = fir;
+        this.mid = mid;
+        this.last = last;
+        this.fullName = fir + " " + mid + " " + last;
+        this.age = age;
+        this.DOB = DOB;
+    }
+
+    //getters
+    public String getFir() {
+        return fir;
+    }
+
+    public char getMid() {
+        return mid;
+    }
+
+    public String getLast() {
+        return last;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getDOB() {
+        return DOB;
+    }
+
+    //print info method for displaying the person's information (will be extended in further classes extended from this one)
+    public void printInfo(){
+        System.out.println("*********************************************");
+        System.out.println("Name: " + fullName);
+        System.out.println("DOB: " + DOB + " Age: " + age);
+    }
+}

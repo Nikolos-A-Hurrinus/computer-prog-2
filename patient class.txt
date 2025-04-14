@@ -1,0 +1,61 @@
+public class Patient extends Person{
+    private String lastApp, nextApp;
+    private Doctor doc;
+    //patients will be assigned a doctor if applicable based off available doctors AKA a doctor must actually exist to work
+
+    //basic constructor
+    public Patient(String fir, String last, char mid, int age, String DOB) {
+        super(fir, last, mid, age, DOB);
+        this.lastApp = "N/A";
+        this.nextApp = "TBD";
+        this.doc = null;
+    }
+
+    //full constructor
+    public Patient(String fir, String last, char mid, int age, String DOB, String lastApp, String nextApp, Doctor doc){
+        super(fir, last, mid, age, DOB);
+        this.lastApp = lastApp;
+        this.nextApp = nextApp;
+        this.doc = doc;
+    }
+
+    //getters
+    public String getLastApp() {
+        return lastApp;
+    }
+
+    public String getNextApp() {
+        return nextApp;
+    }
+
+    public Doctor getDoc() {
+        return doc;
+    }
+
+    //some setters for in case
+    public void setLastApp(String lastApp) {
+        this.lastApp = lastApp;
+    }
+
+    public void setNextApp(String nextApp) {
+        this.nextApp = nextApp;
+    }
+
+    public void setDoc(Doctor doc) {
+        this.doc = doc;
+    }
+
+
+    //overridden print info method which includes the patient specific information
+    //as can be seen there is an if in case the patient has a doctor or not and it prints accordingly
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Last appointment: " + lastApp + " Next appointment: " + nextApp);
+        if (doc == null){
+            System.out.println("No doctor currently appointed");
+        }else{
+            System.out.println("Current Doctor: Dr." + doc.getLast());
+        }
+    }
+}

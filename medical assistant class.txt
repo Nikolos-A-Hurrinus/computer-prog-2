@@ -1,0 +1,31 @@
+public class MedAssistant extends Person{
+    private String mainLocation;
+    protected String position;
+
+    //basic constructor
+    public MedAssistant(String fir, String last, char mid, int age, String DOB) {
+        super(fir, last, mid, age, DOB);
+        this.mainLocation = "Head Office";
+        this.position = "Medical assistant";
+    }
+
+    //full constructor
+    public MedAssistant(String fir, String last, char mid, int age, String DOB, String mainLocation){
+        super(fir, last, mid, age, DOB);
+        this.mainLocation = mainLocation;
+        this.position = "Medical assistant";
+    }
+
+    //getter
+    public String getMainLocation() {
+        return mainLocation;
+    }
+
+    //overridden print info method which includes the medical assistant's specific information
+    @Override
+    public void printInfo() {
+        super.printInfo();
+        System.out.println("Position: " + position);
+        System.out.println("Main location: " + mainLocation);
+    }
+}
