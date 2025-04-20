@@ -1,0 +1,54 @@
+/*
+This program shows a simple implementation of both an overarching abstract class and some more specific minor interfaces
+
+THE ABSTRACT CLASS:
+    The abstract Animal class is a generic class that just specifies that all animals need to sleep and have the ability
+    to make some sort of sound. While sleeping is determined by the Animal class the sound must be decided within the
+    subclass as obviously different animals make different noises.
+
+THE INTERFACES:
+    The two interfaces help narrow down the different types of animals since not all animals work the same. The two
+    different types shown here are land based and water based animals. Obviously a water animal couldn't do what a land
+    can, necessarily speaking. So, these interfaces help separate the two from each other making them more specific/
+    specialized. If I wanted to be even more specific I could make more such as canFly or eatsMeat/ eatsPlants.
+
+WHEN TO USE ON OR OTHER:
+    while both are similar in certain aspects the big difference is 2 things:
+        1.  An abstract class is a class which means things are derived from it and can only use it and not another
+            class unlike interfaces which are implemented and a class can have as many interfaces as it wants.
+
+        2.  Interfaces can't specify what a method does unlike an abstract class which again is much like a class and
+            can be called via super. So an interface more just works as a blueprint or template for aspects of the class
+            that implements it
+
+    So using one or the other depends on what you need: an overarching class that has abstract and predefined methods
+    and variables, use an abstract class. A list essentially of what a class will need/ should implement, use an
+    interface
+ */
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d1 = new Dog();
+        Cat c1 = new Cat();
+        Fish f1 = new Fish();
+
+        //all can sleep
+        d1.sleep();
+        c1.sleep();
+        f1.sleep();
+
+        //all can make sounds but in different ways
+        d1.makeSound();
+        c1.makeSound();
+        f1.makeSound();
+
+        //only land animals can run and jump
+        d1.run();
+        c1.run();
+        d1.jump();
+        c1.jump();
+
+        //only water animals can swim
+        f1.swim();
+    }
+}

@@ -1,0 +1,4 @@
+public interface landAnimal {
+    void run();
+    void jump();
+}

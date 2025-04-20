@@ -1,0 +1,11 @@
+public class Fish extends Animal implements waterAnimal{
+    @Override
+    public void makeSound() {
+        System.out.println("*Blub* *Blub*");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("The fish swims away to hide in the rocks");
+    }
+}

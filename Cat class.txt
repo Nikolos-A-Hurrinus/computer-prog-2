@@ -1,0 +1,16 @@
+public class Cat extends Animal implements landAnimal{
+    @Override
+    public void makeSound() {
+        System.out.println("*Meeeoowwww*");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("The cat scurries away");
+    }
+
+    @Override
+    public void jump() {
+        System.out.println("The cat jumps onto the table, STAY AWAY FROM THAT VASE!");
+    }
+}

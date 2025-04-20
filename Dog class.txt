@@ -1,0 +1,17 @@
+public class Dog extends Animal implements landAnimal{
+
+    @Override
+    public void makeSound() {
+        System.out.println("*Bark* *Bark*");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("The dog runs after the stick");
+    }
+
+    @Override
+    public void jump() {
+        System.out.println("The dog jumps onto the couch, BAD DOG!");
+    }
+}
