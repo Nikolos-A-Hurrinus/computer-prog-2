@@ -1,0 +1,8 @@
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(Fib.displayFibR(10));//returns 34
+        System.out.println(Fib.displayFibI(10));//returns 34
+        System.out.println(DecToBin.returnDecAsBinR(10));//10 returns 1010 and 11 returns 1011
+        System.out.println(DecToBin.returnDecAsBinI(10));//10 returns 1010 and 11 returns 1011
+    }
+}

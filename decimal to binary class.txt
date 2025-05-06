@@ -1,0 +1,34 @@
+public class DecToBin {
+
+    public static String returnDecAsBinR(int dec){
+        if (dec < 0){
+            System.out.println("value can't be negative");
+            return "-1";
+        } else if (dec == 0) {
+            return "0";
+        } else if (dec == 1) {
+            return "1";
+        }else {
+            return returnDecAsBinR(dec / 2) + (dec % 2);
+        }
+    }
+
+    public static String returnDecAsBinI(int dec){
+        if (dec < 0) {
+            System.out.println("value can't be negative");
+            return "-1";
+        } else if (dec == 0) {
+            return "0";
+        } else if (dec == 1) {
+            return "1";
+        }else {
+            String bin = "";
+            while (dec > 0) {
+                bin = (dec % 2) + bin;
+                dec /= 2;
+            }
+            return bin;
+        }
+    }
+
+}
