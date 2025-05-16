@@ -1,0 +1,33 @@
+public class Electronics extends Product{
+    private String type, powerSource;
+
+    public Electronics(String name, int ID, double price, int stock, String type, String powerSource) {
+        super(name, ID, price, "Electronic", stock);
+        this.type = type;
+        this.powerSource = powerSource;
+    }
+
+    //getters setters
+    public String getType() {
+        return type;
+    }
+
+    public String getPowerSource() {
+        return powerSource;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setPowerSource(String powerSource) {
+        this.powerSource = powerSource;
+    }
+
+    //overrides the method to display all the info
+    @Override
+    public void displayFullInfo() {
+        super.displayFullInfo();
+        System.out.println("Type of electronic: " + this.type + "\nPower source: " + this.powerSource);
+    }
+}

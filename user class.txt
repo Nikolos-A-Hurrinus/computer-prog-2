@@ -1,0 +1,50 @@
+public abstract class User {
+    private String name, email, password;
+    private int ID;
+
+    public User(String name, String email, String password, int ID){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.ID = ID;
+    }
+
+
+    //getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    //displays info on user if needed
+    public void getInfo(){
+        System.out.println("Name: " + this.name + "   ID: " + this.ID + "\nEmail: " + this.email);
+    }
+}

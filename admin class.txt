@@ -1,0 +1,28 @@
+public class Admin extends User{
+
+
+    public Admin(String name, String email, String password, int ID) {
+        super(name, email, password, ID);
+    }
+
+    //only the admin can add and remove items
+    public void addProduct(Product p){
+        Store.addProduct(p);
+    }
+
+    public void removeProduct(Product p){
+       Store.removeProduct(p);
+    }
+
+    //admins are able to restock items on the site
+    public void setStock(Product p, int refill){
+        p.setStock(p.getStock() + refill);
+        System.out.println(p.getName() + " refilled successfully, new stock amount: " + p.getStock());
+    }
+
+    //the admin can display the inventory of the store when needed
+    public void displayInventory() {
+        System.out.println("current user: " + this.getName() + "\n---------------");
+        Store.displayInventory();
+    }
+}

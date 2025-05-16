@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Store {
+    private static List<Product> inventory = new ArrayList<>();
+
+    // Add a product to the store inventory
+    public static void addProduct(Product p) {
+        inventory.add(p);
+        System.out.println(p.getName() + " added to store inventory.");
+    }
+
+    // Remove a product from the store
+    public static void removeProduct(Product p) {
+        if (inventory.remove(p)) {
+            System.out.println(p.getName() + " removed from store inventory.");
+        } else {
+            System.out.println("Product not found in store inventory.");
+        }
+    }
+
+    // Display all available products
+    public static void displayInventory() {
+        if (inventory.isEmpty()) {
+            System.out.println("Store inventory is currently empty.");
+        } else {
+            System.out.println("Store Inventory:\n==========================");
+            inventory.forEach(Product::listing);
+        }
+    }
+
+    // Get the inventory list
+    public static List<Product> getInventory() {
+        return inventory;
+    }
+}

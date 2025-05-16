@@ -1,0 +1,90 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Customer extends User{
+    private List<Product> cart;
+    private List<Order> pastOrders;
+
+
+    public Customer(String name, String email, String password, int ID) {
+        super(name, email, password, ID);
+        this.cart = new ArrayList<>();
+        this.pastOrders = new ArrayList<>();
+    }
+
+    //allows customer to view the store
+    public void browseStore() {
+        System.out.println("current user: " + this.getName() + "\n---------------");
+        Store.displayInventory();
+    }
+
+    //allows you to add an item to the customers cart
+    public void addToCart(Product p){
+        if(p.checkStock()) {
+            this.cart.add(p);
+            System.out.println(p.getName() + " added to cart");
+        }else{
+            System.out.println("Sorry this item is currently out of stock!");
+        }
+    }
+
+    //allows customer to remove a product from their cart
+    public void removeFromCart(Product p) {
+        if (cart.remove(p)) {
+            System.out.println(p.getName() + " removed from cart.");
+        } else {
+            System.out.println("Product not found in cart.");
+        }
+    }
+
+    //views the items within the cart
+    public void viewCart(){
+        System.out.println("current user: " + this.getName() + "\n---------------");
+        if (cart.isEmpty()){
+            System.out.println("Your cart is currently empty");
+        }else{
+            System.out.println("Current items:\n================================");
+            for (Product p : cart){
+                p.displayFullInfo();
+                System.out.println("================================");
+            }
+        }
+    }
+
+    //allows you to check out the cart and adds it to past orders
+    public void checkout() {
+        if (cart.isEmpty()) {
+            System.out.println("Your cart is empty! Add items before checking out.");
+            return;
+        }
+
+        // Create an order with a unique ID
+        int newOrderID = pastOrders.size() + 1;
+        Order newOrder = new Order(newOrderID, cart);
+
+        //reduces the stock of the item now that it's purchased
+        cart.forEach(product -> product.setStock(product.getStock() - 1));
+
+        // Store order in history and clear the cart
+        pastOrders.add(newOrder);
+        cart.clear();
+
+        System.out.println("Order placed successfully! Your cart is now empty.");
+    }
+
+    //allows the customer to view all their past orders
+    public void viewOrderHistory() {
+        System.out.println("current user: " + this.getName() + "\n---------------");
+        if (pastOrders.isEmpty()) {
+            System.out.println("No past orders.");
+            return;
+        }
+
+        System.out.println("Your Order History:\n================================");
+        for (Order o : pastOrders){
+            o.displayOrderDetails();
+        }
+        System.out.println("================================");
+    }
+
+}

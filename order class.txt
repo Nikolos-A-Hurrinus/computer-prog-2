@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Order {
+    private int orderID;
+    private List<Product> products;
+    private double total;
+    private static final double TAX_RATE = 0.08;
+    private static final double SHIPPING_FEE = 4.00;
+
+    //constructor
+    public Order(int orderID, List<Product> products){
+        this.orderID = orderID;
+        this.products = new ArrayList<>(products);
+        this.total = calcTotal();
+    }
+
+    //used to calculate the total of the order
+    private double calcTotal(){
+        double subtotal = products.stream()
+                .mapToDouble(Product::getPrice)
+                .sum();
+        double tax = subtotal * TAX_RATE;
+        return subtotal + tax + SHIPPING_FEE;
+    }
+
+    //this is used to display the order and its contents
+    public void displayOrderDetails() {
+        System.out.println("Order ID: " + orderID + " | Total Price: $" + String.format("%.2f", total));
+        System.out.println("Items in Order:");
+        System.out.println("-----------");
+        for (Product p  : products){
+            p.displayFullInfo();
+            System.out.println("-----------");
+        }
+    }
+}

@@ -1,0 +1,46 @@
+public class Main {
+    public static void main(String[] args) {
+        //create products and adds them to the store
+        Product laptop = new Electronics("laptop",1,1200.00,5,"computer", "battery");
+        Product jeans = new Clothing("jeans", 1, 12.99,15,"M","Female");
+        Product mango = new Grocery("mango", 1, 0.89,22,"5-25-25", 2);
+
+        Store.addProduct(laptop);
+        Store.addProduct(jeans);
+        Store.addProduct(mango);
+
+        //creates customers and the admin
+        Admin admin = new Admin("Niko", "Niko@gmail.com","Niko1234", 1);
+        Customer c1 = new Customer("John", "john@yahoo.com", "John1234",1);
+        Customer c2 = new Customer("Mary", "mary@aol.com", "Mary1234", 2);
+
+        //customers interact with the store
+        c1.browseStore();
+        c1.addToCart(mango);
+        c1.addToCart(jeans);
+        c1.viewCart();
+        c1.removeFromCart(mango);
+        c1.viewCart();
+        c1.checkout();
+        c1.viewOrderHistory();
+        c1.browseStore();
+
+        //admin effects store
+        admin.displayInventory();
+        admin.setStock(jeans,6);
+        Product apple;
+        admin.addProduct(apple = new Grocery("apple", 2, 0.68,30,"5-28-25",1.5));
+        admin.removeProduct(mango);
+        admin.displayInventory();
+
+        //second customer interacts with store
+        c2.browseStore();
+        c2.addToCart(apple);
+        c2.addToCart(apple);
+        c2.viewCart();
+        c2.checkout();
+        c2.viewOrderHistory();
+        c2.browseStore();
+
+    }
+}
